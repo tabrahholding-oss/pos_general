@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:order_type",
+ "creation": "2024-06-13 17:32:20.171813",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "order_type",
+  "section_break_uttpi",
+  "is_dine_in",
+  "column_break_v5gpg",
+  "is_delivery",
+  "column_break_lrdbl",
+  "is_take_away",
+  "column_break_s34cp",
+  "section_break_idhuk",
+  "hold_invoices",
+  "fbr_charges"
+ ],
+ "fields": [
+  {
+   "fieldname": "order_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Order Type",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_dine_in",
+   "fieldtype": "Check",
+   "label": "Is Dine In",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_delivery",
+   "fieldtype": "Check",
+   "label": "Is Delivery"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_take_away",
+   "fieldtype": "Check",
+   "label": "Is Take Away"
+  },
+  {
+   "fieldname": "hold_invoices",
+   "fieldtype": "Select",
+   "label": "Hold Invoices",
+   "options": "\nRecall Eat\nRecall Take Away\nRecall Delivery"
+  },
+  {
+   "fieldname": "section_break_uttpi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_v5gpg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lrdbl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_s34cp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_idhuk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "fbr_charges",
+   "fieldtype": "Check",
+   "label": "FBR Charges"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-07 12:11:24.915067",
+ "modified_by": "Administrator",
+ "module": "POS General",
+ "name": "Order Type",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_views": 1
+}

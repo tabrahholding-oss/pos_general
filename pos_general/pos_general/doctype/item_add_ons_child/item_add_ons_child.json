@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-22 18:18:52.004444",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "item_name",
+  "uom",
+  "display_name",
+  "deal_price",
+  "is_upsize",
+  "upsize_price",
+  "row_index",
+  "column_break_qvhbl",
+  "item_description",
+  "item_group",
+  "rate"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fetch_from": "item.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name"
+  },
+  {
+   "fetch_from": "item.stock_uom",
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "fetch_from": "item.item_name",
+   "fetch_if_empty": 1,
+   "fieldname": "display_name",
+   "fieldtype": "Data",
+   "label": "Display Name"
+  },
+  {
+   "fieldname": "column_break_qvhbl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "item.description",
+   "fieldname": "item_description",
+   "fieldtype": "Text Editor",
+   "label": "Item Description"
+  },
+  {
+   "fetch_from": "item.item_group",
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "label": "Item Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate",
+   "options": "currency"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_upsize",
+   "fieldtype": "Check",
+   "label": "Is Upsize"
+  },
+  {
+   "fieldname": "upsize_price",
+   "fieldtype": "Float",
+   "label": "Upsize Price"
+  },
+  {
+   "fieldname": "row_index",
+   "fieldtype": "Select",
+   "label": "Row Index",
+   "options": "1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "deal_price",
+   "fieldtype": "Float",
+   "label": "Deal Price",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-26 18:52:34.040503",
+ "modified_by": "Administrator",
+ "module": "POS General",
+ "name": "Item Add Ons Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

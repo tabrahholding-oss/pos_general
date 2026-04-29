@@ -1,0 +1,76 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-19 21:32:39.713160",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "loyalty_program",
+  "loyalty_program_tier",
+  "loyalty_points",
+  "invoice_type",
+  "invoice",
+  "invoice_source"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Name",
+   "options": "Loyalty Point Entry"
+  },
+  {
+   "fieldname": "loyalty_program",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Loyalty Program",
+   "options": "Loyalty Program"
+  },
+  {
+   "fieldname": "loyalty_program_tier",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Loyalty Program Tier"
+  },
+  {
+   "fieldname": "loyalty_points",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Loyalty Points"
+  },
+  {
+   "fieldname": "invoice_type",
+   "fieldtype": "Link",
+   "label": "Invoice Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "invoice",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Invoice",
+   "options": "invoice_type"
+  },
+  {
+   "fieldname": "invoice_source",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Invoice Source"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-10 23:04:57.268427",
+ "modified_by": "Administrator",
+ "module": "POS General",
+ "name": "Customer Loyalty Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

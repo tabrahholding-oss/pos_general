@@ -1,0 +1,260 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:PC-{YYYY}-{#####}",
+ "creation": "2026-02-09 18:51:31.297647",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "posting_date",
+  "clearing_type",
+  "column_break_3w9h",
+  "clearing_account",
+  "company",
+  "bank_account",
+  "amount_breakdown_section",
+  "from_date",
+  "gross_amount_as_per_pos",
+  "column_break_9xry",
+  "to_date",
+  "section_break_vof1",
+  "payment_clearing_accounts",
+  "section_break_wuyy",
+  "net_amount",
+  "column_break_7end",
+  "difference",
+  "section_break_qzdx",
+  "net_amount_received",
+  "bank_confirmation_section",
+  "bank_statement_date",
+  "bank_remarks",
+  "column_break_sttr",
+  "bank_transaction_id",
+  "clearing_info_section",
+  "clearing_balance_before",
+  "clearing_balance_after",
+  "journal_entry_section",
+  "journal_entry_status",
+  "column_break_n3zl",
+  "journal_entry",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "clearing_type",
+   "fieldtype": "Data",
+   "label": "Clearing Type"
+  },
+  {
+   "fieldname": "column_break_3w9h",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "clearing_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Clearing Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "amount_breakdown_section",
+   "fieldtype": "Section Break",
+   "label": "Amount Breakdown"
+  },
+  {
+   "default": "0.0",
+   "fieldname": "gross_amount_as_per_pos",
+   "fieldtype": "Currency",
+   "label": "Gross Amount (as per POS)",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0.0",
+   "fieldname": "net_amount",
+   "fieldtype": "Currency",
+   "label": "Net Amount",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_wuyy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "net_amount_received",
+   "fieldtype": "Currency",
+   "label": "Net Amount Received ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_qzdx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0.0",
+   "fieldname": "difference",
+   "fieldtype": "Currency",
+   "label": "Difference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bank_confirmation_section",
+   "fieldtype": "Section Break",
+   "label": "Bank Confirmation"
+  },
+  {
+   "fieldname": "bank_statement_date",
+   "fieldtype": "Date",
+   "label": "Bank Statement Date"
+  },
+  {
+   "fieldname": "bank_remarks",
+   "fieldtype": "Small Text",
+   "label": "Bank Remarks"
+  },
+  {
+   "fieldname": "column_break_sttr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_transaction_id",
+   "fieldtype": "Data",
+   "label": "Bank Transaction ID"
+  },
+  {
+   "fieldname": "clearing_info_section",
+   "fieldtype": "Section Break",
+   "label": "Clearing Info"
+  },
+  {
+   "fieldname": "clearing_balance_before",
+   "fieldtype": "Currency",
+   "label": "Clearing Balance (Before)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "clearing_balance_after",
+   "fieldtype": "Currency",
+   "label": "Clearing Balance (After)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "journal_entry_section",
+   "fieldtype": "Tab Break",
+   "label": "Journal Entry"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "journal_entry_status",
+   "fieldtype": "Select",
+   "label": "Journal Entry Status",
+   "options": "\nPending\nCreated"
+  },
+  {
+   "fieldname": "column_break_n3zl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "doc.journal_entry_status == 'Created'",
+   "fieldname": "journal_entry",
+   "fieldtype": "Link",
+   "label": "Journal Entry",
+   "options": "Journal Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Payment Clearing Reconciliation Entry",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "payment_clearing_accounts",
+   "fieldtype": "Table",
+   "label": "Payment Clearing Accounts",
+   "options": "Payment Clearing Accounts",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_9xry",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_vof1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_7end",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-02-15 17:42:01.636502",
+ "modified_by": "Administrator",
+ "module": "POS General",
+ "name": "Payment Clearing Reconciliation Entry",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

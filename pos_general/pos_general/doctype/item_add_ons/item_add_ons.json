@@ -1,0 +1,173 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-04-22 18:16:00.890558",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "item",
+  "item_description",
+  "column_break_hl0mh",
+  "item_name",
+  "column_break_yjzpy",
+  "display_name",
+  "column_break_ooxip",
+  "is_required",
+  "is_multiselect",
+  "is_deal",
+  "is_fixed_price",
+  "deal_price",
+  "section_break_6m7xb",
+  "is_dependent",
+  "column_break_2lkyn",
+  "dependent_item_attribute",
+  "dependent_item_attribute_value",
+  "section_break_6lp1y",
+  "item_add_ons"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Series",
+   "options": "{{item}}.-.Add-Ons.-.####"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "item.description",
+   "fetch_if_empty": 1,
+   "fieldname": "item_description",
+   "fieldtype": "Text Editor",
+   "label": "Item Description",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hl0mh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "item.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_yjzpy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "display_name",
+   "fieldtype": "Data",
+   "label": "Display Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ooxip",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_required",
+   "fieldtype": "Check",
+   "label": "Is Required"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_multiselect",
+   "fieldtype": "Check",
+   "label": "Is Multiselect"
+  },
+  {
+   "fieldname": "section_break_6m7xb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_dependent",
+   "fieldtype": "Check",
+   "label": "Is Dependent"
+  },
+  {
+   "fieldname": "column_break_2lkyn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.is_dependent==1",
+   "fieldname": "dependent_item_attribute",
+   "fieldtype": "Link",
+   "label": "Dependent Item Attribute",
+   "options": "Item Attribute"
+  },
+  {
+   "depends_on": "eval:doc.is_dependent==1",
+   "fieldname": "dependent_item_attribute_value",
+   "fieldtype": "Select",
+   "label": "Dependent Item Attribute Value"
+  },
+  {
+   "fieldname": "section_break_6lp1y",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item_add_ons",
+   "fieldtype": "Table",
+   "label": "Item Add-Ons",
+   "options": "Item Add Ons Child"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_deal",
+   "fieldtype": "Check",
+   "label": "Is Deal"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_fixed_price",
+   "fieldtype": "Check",
+   "label": "Is Fixed price"
+  },
+  {
+   "fieldname": "deal_price",
+   "fieldtype": "Float",
+   "label": "Deal Price"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-25 18:18:37.807736",
+ "modified_by": "Administrator",
+ "module": "POS General",
+ "name": "Item Add-Ons",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

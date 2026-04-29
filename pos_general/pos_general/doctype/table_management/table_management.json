@@ -1,0 +1,101 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:table_no",
+ "creation": "2024-05-08 13:09:45.127643",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "branch",
+  "order_type",
+  "table_no",
+  "table_name",
+  "floor_no",
+  "no_of_seats",
+  "column_break_we1pv",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "table_no",
+   "fieldtype": "Data",
+   "label": "Table No",
+   "unique": 1
+  },
+  {
+   "fieldname": "floor_no",
+   "fieldtype": "Int",
+   "label": "Floor No"
+  },
+  {
+   "fieldname": "column_break_we1pv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "no_of_seats",
+   "fieldtype": "Int",
+   "label": "No of Seats"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Available\nReserved"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch"
+  },
+  {
+   "fieldname": "table_name",
+   "fieldtype": "Data",
+   "label": "Table Name"
+  },
+  {
+   "fieldname": "order_type",
+   "fieldtype": "Link",
+   "label": "Order Type",
+   "options": "Order Type"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-25 15:36:24.959801",
+ "modified_by": "Administrator",
+ "module": "POS General",
+ "name": "Table Management",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Green",
+   "title": "Available"
+  },
+  {
+   "color": "Red",
+   "title": "Reserved"
+  }
+ ]
+}

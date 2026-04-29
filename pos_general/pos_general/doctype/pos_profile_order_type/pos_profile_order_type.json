@@ -1,0 +1,71 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-04 12:03:42.469791",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "order_type",
+  "is_dine_in",
+  "is_delivery",
+  "is_take_away",
+  "hold_invoices"
+ ],
+ "fields": [
+  {
+   "fieldname": "order_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Order Type",
+   "options": "Order Type"
+  },
+  {
+   "default": "0",
+   "fetch_from": "order_type.is_dine_in",
+   "fieldname": "is_dine_in",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Dine In",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "order_type.is_delivery",
+   "fieldname": "is_delivery",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Delivery",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "order_type.is_take_away",
+   "fieldname": "is_take_away",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Take Away",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "order_type.hold_invoices",
+   "fieldname": "hold_invoices",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Hold Invoices",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-04 12:06:12.156713",
+ "modified_by": "Administrator",
+ "module": "POS General",
+ "name": "POS Profile Order Type",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

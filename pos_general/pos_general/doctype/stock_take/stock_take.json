@@ -1,0 +1,159 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:STK-{YYYY}-{MM}-{#######}",
+ "creation": "2024-09-05 16:08:13.153817",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "count_type",
+  "company",
+  "location",
+  "branch",
+  "warehouses",
+  "warehouse",
+  "section_break_t8fwv",
+  "posting_date",
+  "set_posting_time",
+  "column_break_m0ahn",
+  "posting_time",
+  "section_break_1od0y",
+  "item_groups",
+  "section_break_71dyr",
+  "items",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "depends_on": "eval: doc.location == 'Warehouse'",
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Warehouse",
+   "mandatory_depends_on": "eval: doc.location == 'Warehouse'",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Select",
+   "label": "Location",
+   "options": "Branch\nWarehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Stock Take",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.location == 'Branch'",
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "mandatory_depends_on": "eval: doc.location == 'Branch'",
+   "options": "Branch"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Stock Take Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_m0ahn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Stock Take Time"
+  },
+  {
+   "default": "0",
+   "fieldname": "set_posting_time",
+   "fieldtype": "Check",
+   "label": "Edit Date and Time"
+  },
+  {
+   "fieldname": "section_break_t8fwv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Item",
+   "options": "Stock Take Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "remember_last_selected_value": 1,
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.location == 'Branch'",
+   "fieldname": "warehouses",
+   "fieldtype": "Table",
+   "label": "Warehouses",
+   "options": "Branch Warehouse"
+  },
+  {
+   "fieldname": "section_break_1od0y",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item_groups",
+   "fieldtype": "Table MultiSelect",
+   "label": "Item Groups",
+   "options": "Stock Take Item Group"
+  },
+  {
+   "fieldname": "count_type",
+   "fieldtype": "Link",
+   "label": "Count Type",
+   "options": "Count Type"
+  },
+  {
+   "fieldname": "section_break_71dyr",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-09-05 18:22:48.519274",
+ "modified_by": "Administrator",
+ "module": "POS General",
+ "name": "Stock Take",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_views": 1
+}

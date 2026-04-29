@@ -1,25 +1,11 @@
+from . import __version__ as app_version
+
 app_name = "pos_general"
 app_title = "POS General"
-app_publisher = "Hussain Farooq"
+app_publisher = "Hussain"
 app_description = "POS General"
 app_email = "hussain@tabrah-holding.com"
-app_license = "mit"
-
-# Apps
-# ------------------
-
-# required_apps = []
-
-# Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "pos_general",
-# 		"logo": "/assets/pos_general/logo.png",
-# 		"title": "POS General",
-# 		"route": "/pos_general",
-# 		"has_permission": "pos_general.api.permission.has_app_permission"
-# 	}
-# ]
+app_license = "MIT"
 
 # Includes in <head>
 # ------------------
@@ -43,15 +29,16 @@ app_license = "mit"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {"Sales Order" : "public/js/sales_order_custom.js"}
+doctype_js = {"Customer" : "public/js/customer_custom.js"}
+doctype_js = {"POS Profile" : "public/js/pos_payment_method_custom.js"}
+doctype_js = {
+    "Sales Invoice": "public/js/sales_invoice_custom.js",
+}
+
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
-
-# Svg Icons
-# ------------------
-# include app icons in desk
-# app_include_icons = "pos_general/public/icons.svg"
 
 # Home Pages
 # ----------
@@ -61,7 +48,7 @@ app_license = "mit"
 
 # website user home page (by Role)
 # role_home_page = {
-# 	"Role": "home_page"
+#	"Role": "home_page"
 # }
 
 # Generators
@@ -75,8 +62,8 @@ app_license = "mit"
 
 # add methods and filters to jinja environment
 # jinja = {
-# 	"methods": "pos_general.utils.jinja_methods",
-# 	"filters": "pos_general.utils.jinja_filters"
+#	"methods": "pos_general.utils.jinja_methods",
+#	"filters": "pos_general.utils.jinja_filters"
 # }
 
 # Installation
@@ -91,22 +78,6 @@ app_license = "mit"
 # before_uninstall = "pos_general.uninstall.before_uninstall"
 # after_uninstall = "pos_general.uninstall.after_uninstall"
 
-# Integration Setup
-# ------------------
-# To set up dependencies/integrations with other apps
-# Name of the app being installed is passed as an argument
-
-# before_app_install = "pos_general.utils.before_app_install"
-# after_app_install = "pos_general.utils.after_app_install"
-
-# Integration Cleanup
-# -------------------
-# To clean up dependencies/integrations with other apps
-# Name of the app being uninstalled is passed as an argument
-
-# before_app_uninstall = "pos_general.utils.before_app_uninstall"
-# after_app_uninstall = "pos_general.utils.after_app_uninstall"
-
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
@@ -118,11 +89,11 @@ app_license = "mit"
 # Permissions evaluated in scripted ways
 
 # permission_query_conditions = {
-# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
+#	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
 # }
 #
 # has_permission = {
-# 	"Event": "frappe.desk.doctype.event.event.has_permission",
+#	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
 
 # DocType Class
@@ -130,40 +101,49 @@ app_license = "mit"
 # Override standard doctype classes
 
 # override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
+#	"ToDo": "custom_app.overrides.CustomToDo"
 # }
 
 # Document Events
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+    "Sales Order": {
+        "validate": "pos_general.custom.sales_order_custom.validate"
+    },
+    "Sales Invoice": {
+        "before_save": "pos_general.custom.sales_invoice_custom.before_save_invoice",
+        "on_submit": ["pos_general.custom.sales_invoice_custom.on_submit", "pos_general.custom.sales_invoice_custom.before_save_invoice"],
+        "on_update": "pos_general.custom.sales_invoice_custom.on_update",
+        "on_cancel": "pos_general.custom.sales_invoice_custom.on_cancel"
+    },
+#	"*": {
+#		"on_update": "method",
+#		"on_cancel": "method",
+#		"on_trash": "method"
+#	}
+}
 
 # Scheduled Tasks
 # ---------------
 
 # scheduler_events = {
-# 	"all": [
-# 		"pos_general.tasks.all"
-# 	],
-# 	"daily": [
-# 		"pos_general.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"pos_general.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"pos_general.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"pos_general.tasks.monthly"
-# 	],
+#	"all": [
+#		"pos_general.tasks.all"
+#	],
+#	"daily": [
+#		"pos_general.tasks.daily"
+#	],
+#	"hourly": [
+#		"pos_general.tasks.hourly"
+#	],
+#	"weekly": [
+#		"pos_general.tasks.weekly"
+#	],
+#	"monthly": [
+#		"pos_general.tasks.monthly"
+#	],
 # }
 
 # Testing
@@ -175,14 +155,14 @@ app_license = "mit"
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "pos_general.event.get_events"
+#	"frappe.desk.doctype.event.event.get_events": "pos_general.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
-# along with any modifications made in other Frappe apps
+# along with any modifications made in other Ducky apps
 # override_doctype_dashboards = {
-# 	"Task": "pos_general.task.get_dashboard_data"
+#	"Task": "pos_general.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
@@ -208,42 +188,29 @@ app_license = "mit"
 # --------------------
 
 # user_data_fields = [
-# 	{
-# 		"doctype": "{doctype_1}",
-# 		"filter_by": "{filter_by}",
-# 		"redact_fields": ["{field_1}", "{field_2}"],
-# 		"partial": 1,
-# 	},
-# 	{
-# 		"doctype": "{doctype_2}",
-# 		"filter_by": "{filter_by}",
-# 		"partial": 1,
-# 	},
-# 	{
-# 		"doctype": "{doctype_3}",
-# 		"strict": False,
-# 	},
-# 	{
-# 		"doctype": "{doctype_4}"
-# 	}
+#	{
+#		"doctype": "{doctype_1}",
+#		"filter_by": "{filter_by}",
+#		"redact_fields": ["{field_1}", "{field_2}"],
+#		"partial": 1,
+#	},
+#	{
+#		"doctype": "{doctype_2}",
+#		"filter_by": "{filter_by}",
+#		"partial": 1,
+#	},
+#	{
+#		"doctype": "{doctype_3}",
+#		"strict": False,
+#	},
+#	{
+#		"doctype": "{doctype_4}"
+#	}
 # ]
 
 # Authentication and authorization
 # --------------------------------
 
 # auth_hooks = [
-# 	"pos_general.auth.validate"
+#	"pos_general.auth.validate"
 # ]
-
-# Automatically update python controller files with type annotations for this app.
-# export_python_type_annotations = True
-
-# default_log_clearing_doctypes = {
-# 	"Logging DocType Name": 30  # days to retain logs
-# }
-
-# Translation
-# ------------
-# List of apps whose translatable strings should be excluded from this app's translations.
-# ignore_translatable_strings_from = []
-
