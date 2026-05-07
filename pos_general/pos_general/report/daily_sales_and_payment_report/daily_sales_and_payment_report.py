@@ -281,7 +281,7 @@ def execute(filters=None):
         discount_total += flt(inv.base_discount_amount)
 
         # --- Payment totals (cash, card, other) ---
-        cash_amount_final = max(0.0, cash_paid - flt(inv.change_amount)) + cash_tip_this_inv
+        cash_amount_final = max(0.0, cash_paid - flt(inv.change_amount))
         if abs(cash_amount_final) > 0.0001:
             add_pay(CASH_MOP, cash_amount_final)
 
